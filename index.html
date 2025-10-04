@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>$TRUST Airdrop Checker 👁️</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html, body { width:100%; height:100%; font-family:'Inter', sans-serif; background: linear-gradient(135deg, #0f0f1a, #1c1c2e); color:#e0e0f8; display:flex; justify-content:center; align-items:center; flex-direction:column; }
+
+  .poem-container { text-align:center; max-width:90vw; margin-bottom:5vh; }
+  .poem-line { opacity:0; transform:translateY(20px); transition:opacity 2s ease, transform 2s ease; font-weight:500; font-size:clamp(2rem,4vw+2vh,4rem); color:#38f9d7; }
+  .poem-line.visible { opacity:1; transform:translateY(0); }
+
+  .container { 
+    display:none; 
+    background: rgba(25,25,45,0.95); 
+    padding:4vw; 
+    border-radius:1.5vw; 
+    width:90vw; 
+    max-width:1400px; 
+    box-shadow:0 0 3vw rgba(56,249,215,0.35); 
+    flex-direction:column; 
+    animation: slideUp 1s ease-out;
+  }
+
+  h1 { text-align:center; font-size:clamp(3rem,6vw+2vh,10rem); margin-bottom:1vh; color:#38f9d7; }
+  .disclaimer { font-size:clamp(1rem,1.5vw+0.5vh,2.5rem); text-align:center; color:#ffd700; margin-bottom:2vh; }
+
+  label { display:block; margin:1vh 0 0.5vh; font-weight:600; color:#e0e0f8; font-size:clamp(1.2rem,1.8vw+0.5vh,2.5rem); }
+  input[type="text"], input[type="number"] { width:100%; padding:1vw; border:none; border-radius:0.5vw; margin-bottom:1.5vh; font-size:clamp(1.2rem,1.5vw+0.5vh,2.5rem); color:#111; background:#f5f5f5; }
+
+  .checkbox-group { margin-bottom:2vh; }
+  .checkbox-group label { display:block; margin:0.5vh 0; font-weight:400; font-size:clamp(1rem,1.5vw+0.5vh,2rem); color:#e0e0f8; }
+  .checkbox-group input { margin-right:0.5vw; vertical-align:middle; }
+
+  button { background: linear-gradient(90deg, #38f9d7, #6f86ff); color:#111; padding:1vw; border:none; border-radius:0.8vw; cursor:pointer; font-weight:700; font-size:clamp(1.5rem,1.8vw+0.5vh,3rem); width:100%; transition:all 0.3s ease-in-out; }
+  button:hover { transform:scale(1.05); box-shadow:0 0 2vw rgba(56,249,215,0.5); }
+
+  #totalPointsBox { margin-top:1vh; padding:1vw; border-radius:0.5vw; background:#1c1c2e; color:#38f9d7; font-weight:700; text-align:center; font-size:clamp(1.2rem,1.8vw+0.5vh,2.5rem); }
+  #result { margin-top:2vh; font-size:clamp(2rem,3vw+1vh,6rem); font-weight:700; text-align:center; color:#ffd700; opacity:0; transition:opacity 1s ease-in; }
+
+  .footer { margin-top:2vh; font-size:clamp(1rem,1.5vw,1.5rem); color:#38f9d7; cursor:pointer; text-decoration:underline; text-align:center; }
+
+  @keyframes slideUp { from {opacity: 0; transform: translateY(4vh);} to {opacity: 1; transform: translateY(0);} }
+
+  @media(max-width:600px){
+    .poem-line{font-size:5vw;} 
+    h1{font-size:6vw;} 
+    .disclaimer{font-size:3.5vw;} 
+    label, .checkbox-group label { font-size:3.5vw; } 
+    input, button, #totalPointsBox { font-size:3.5vw; } 
+    #result { font-size:4vw; } 
+    .footer { font-size:3vw; }
+  }
+</style>
+</head>
+<body>
+
+<div class="poem-container">
+  <div class="poem-line">You have built, you have believed.</div>
+  <div class="poem-line">Every spark of thought has shaped the unseen.</div>
+  <div class="poem-line">Now the circle turns, and the harvest calls.</div>
+  <div class="poem-line">$TRUST is not a gift — it is the proof of your journey.</div>
+</div>
+
+<div class="container">
+  <h1>$TRUST AIRDROP CHECKER 👁️</h1>
+  <div class="disclaimer">This is not the official $TRUST airdrop checker — for informational purposes only.</div>
+
+  <label for="wallet">Wallet Address:</label>
+  <input type="text" id="wallet" placeholder="Enter your wallet address">
+
+  <label for="iq">IQ Points:</label>
+  <input type="number" id="iq" placeholder="Enter your IQ points">
+  <small style="color:#ffd700;">$TRUST = (Total Points ÷ 500) + NFT Tokens</small>
+
+  <label>Discord Roles (multi-select, only points):</label>
+  <div class="checkbox-group roles-group">
+    <label><input type="checkbox" data-value="0"> Inquirer (0 pts)</label>
+    <label><input type="checkbox" data-value="0"> Wanderer (0 pts)</label>
+    <label><input type="checkbox" data-value="100000"> Traveller (100,000 pts)</label>
+    <label><input type="checkbox" data-value="200000"> Disciple (200,000 pts)</label>
+    <label><input type="checkbox" data-value="400000"> Enchanter (400,000 pts)</label>
+    <label><input type="checkbox" data-value="500000"> Illuminated (500,000 pts)</label>
+    <label><input type="checkbox" data-value="700000"> Conscious (700,000 pts)</label>
+    <label><input type="checkbox" data-value="1000000"> Flame Bearer (1,000,000 pts)</label>
+    <label><input type="checkbox" data-value="1200000"> Oracle (1,200,000 pts)</label>
+  </div>
+
+  <label>Relics / NFT Tokens (multi-select, $TRUST):</label>
+  <div class="checkbox-group nft-group">
+    <label><input type="checkbox" data-value="750"> Common (750 $TRUST)</label>
+    <label><input type="checkbox" data-value="1000"> Rare (1000 $TRUST)</label>
+    <label><input type="checkbox" data-value="1500"> Epic (1500 $TRUST)</label>
+    <label><input type="checkbox" data-value="2500"> Legendary (2500 $TRUST)</label>
+    <label><input type="checkbox" data-value="3000"> Ancient (3000 $TRUST)</label>
+    <label><input type="checkbox" data-value="4000"> Mythic (4000 $TRUST)</label>
+    <label><input type="checkbox" data-value="5000"> Genesis (5000 $TRUST)</label>
+  </div>
+
+  <label>$TRUST Price (USD):</label>
+  <input type="number" id="trustPrice" value="0.2" step="0.01">
+
+  <div id="totalPointsBox">Total Points: 0</div>
+
+  <button id="btnCalc">Calculate</button>
+  <div id="result"></div>
+  <div class="footer" onclick="window.open('https://x.com/play_crypt','_blank')">Made by Play_Cripy</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  // Poem animation
+  const poemLines = document.querySelectorAll('.poem-line');
+  let delay=0;
+  poemLines.forEach(line => { setTimeout(()=>{ line.classList.add('visible'); }, delay); delay += 2000; });
+  setTimeout(()=>{ document.querySelector('.container').style.display='flex'; }, delay + 500);
+
+  const rolesCheckboxes = document.querySelectorAll(".roles-group input[type=checkbox]");
+  const nftCheckboxes = document.querySelectorAll(".nft-group input[type=checkbox]");
+  const totalPointsBox = document.getElementById("totalPointsBox");
+  const iqInput = document.getElementById("iq");
+
+  function updateTotalPoints(){
+    let iqPoints = parseInt(iqInput.value)||0;
+    let rolesPoints = 0;
+    rolesCheckboxes.forEach(cb => { if(cb.checked) rolesPoints += parseInt(cb.getAttribute("data-value"))||0; });
+    const totalPoints = iqPoints + rolesPoints;
+    totalPointsBox.innerText = `Total Points: ${totalPoints.toLocaleString()}`;
+    return totalPoints;
+  }
+
+  rolesCheckboxes.forEach(cb=>cb.addEventListener("change", updateTotalPoints));
+  iqInput.addEventListener("input", updateTotalPoints);
+
+  function calculateTotalTrust(){
+    const totalPoints = updateTotalPoints();
+    const trustFromPoints = totalPoints / 500;
+    let nftTokens = 0;
+    nftCheckboxes.forEach(cb=>{ if(cb.checked) nftTokens += parseInt(cb.getAttribute("data-value"))||0; });
+    const totalTrust = trustFromPoints + nftTokens;
+    const trustPrice = parseFloat(document.getElementById("trustPrice").value)||0.2;
+    const resultEl = document.getElementById("result");
+    resultEl.style.opacity = 1;
+    resultEl.innerHTML = `Total $TRUST: <strong>${totalTrust.toLocaleString()}</strong><br>
+      USD Value: <strong>$${(totalTrust*trustPrice).toFixed(2)}</strong>`;
+  }
+
+  document.getElementById("btnCalc").addEventListener("click", calculateTotalTrust);
+  nftCheckboxes.forEach(cb => cb.addEventListener("change", calculateTotalTrust));
+});
+</script>
+</body>
+</html>
